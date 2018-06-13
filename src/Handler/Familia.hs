@@ -20,3 +20,10 @@ putFamIdR fid = do
     familia <- requireJsonBody :: Handler Familia
     runDB $ replace fid familia
     sendStatusJSON ok200 (object ["resp" .= fromSqlKey fid])    
+
+deleteFamIdR :: FamiliaId -> Handler Value
+deleteFamIdR cid = do
+    addHeader "Access-Control-Allow-Origin" "*"
+    _ <- runDB $ get404 cid
+    runDB $ delete cid
+    sendStatusJSON noContent204 (object [])
