@@ -54,3 +54,10 @@ optionsFamiliaR = do
     addHeader "Access-Control-Allow-Headers" "Origin, X-Requested-With, Content-Type, Accept"
     return $ RepPlain $ toContent ("" :: Text)    
     
+optionsFamIdR :: FamiliaId -> Handler RepPlain
+optionsFamIdR cid = do
+    addHeader "Access-Control-Allow-Origin" "*"
+    addHeader "Access-Control-Allow-Methods" "DELETE, GET, PUT, OPTIONS"
+    addHeader "Access-Control-Allow-Headers" "Origin, X-Requested-With, Content-Type, Accept"
+    return $ RepPlain $ toContent ("" :: Text)    
+    
