@@ -27,3 +27,9 @@ deleteFamIdR cid = do
     _ <- runDB $ get404 cid
     runDB $ delete cid
     sendStatusJSON noContent204 (object [])
+
+getFamIdR :: FamiliaId -> Handler Value
+getFamIdR cid = do
+    addHeader "Access-Control-Allow-Origin" "*"
+    familia <- runDB $ get404 cid
+    sendStatusJSON ok200 (object ["resp" .= familia])    
