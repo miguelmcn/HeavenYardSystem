@@ -7,3 +7,4 @@
 /cemiterio/id/#CemiterioId  		CemIdR		 GET DELETE PUT OPTIONS
 /familia 			    		        FamiliaR 	 	 GET POST OPTIONS
 /familia/id/#FamiliaId  		    FamIdR		 GET DELETE PUT OPTIONS
+/familia/cemiterio/#CemiterioId     FamCemiIdR       GET 
