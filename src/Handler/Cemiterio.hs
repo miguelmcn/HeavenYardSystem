@@ -40,3 +40,10 @@ postCemiterioR = do
     cemiterio <- requireJsonBody :: Handler Cemiterio
     cid <- runDB $ insert cemiterio
     sendStatusJSON created201 (object ["resp" .= fromSqlKey cid])    
+    
+optionsCemiterioR :: Handler RepPlain
+optionsCemiterioR = do
+    addHeader "Access-Control-Allow-Origin" "*"
+    addHeader "Access-Control-Allow-Methods" "POST, GET, OPTIONS"
+    addHeader "Access-Control-Allow-Headers" "Origin, X-Requested-With, Content-Type, Accept"
+    return $ RepPlain $ toContent ("" :: Text)    
