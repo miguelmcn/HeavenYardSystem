@@ -47,3 +47,10 @@ postFamiliaR = do
     fid <- runDB $ insert familia
     sendStatusJSON created201 (object ["resp" .= fromSqlKey fid])    
     
+optionsFamiliaR :: Handler RepPlain
+optionsFamiliaR = do
+    addHeader "Access-Control-Allow-Origin" "*"
+    addHeader "Access-Control-Allow-Methods" "POST, GET, OPTIONS"
+    addHeader "Access-Control-Allow-Headers" "Origin, X-Requested-With, Content-Type, Accept"
+    return $ RepPlain $ toContent ("" :: Text)    
+    
