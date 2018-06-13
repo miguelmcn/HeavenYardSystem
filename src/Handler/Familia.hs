@@ -39,3 +39,11 @@ getFamiliaR = do
     addHeader "Access-Control-Allow-Origin" "*"
     todasFamilias <- runDB $ selectList [] [Asc FamiliaNome]
     sendStatusJSON ok200 (object ["resp" .= todasFamilias])
+    
+postFamiliaR :: Handler Value
+postFamiliaR = do
+    addHeader "Access-Control-Allow-Origin" "*"
+    familia <- requireJsonBody :: Handler Familia
+    fid <- runDB $ insert familia
+    sendStatusJSON created201 (object ["resp" .= fromSqlKey fid])    
+    
