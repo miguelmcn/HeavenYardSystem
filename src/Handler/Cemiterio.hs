@@ -27,3 +27,9 @@ putCemIdR cid = do
     cemiterio <- requireJsonBody :: Handler Cemiterio
     runDB $ replace cid cemiterio
     sendStatusJSON ok200 (object ["resp" .= fromSqlKey cid])    
+
+getCemiterioR :: Handler Value
+getCemiterioR = do
+    addHeader "Access-Control-Allow-Origin" "*"
+    todosCemiterios <- runDB $ selectList [] [Asc CemiterioRazaoSocial]
+    sendStatusJSON ok200 (object ["resp" .= todosCemiterios])
