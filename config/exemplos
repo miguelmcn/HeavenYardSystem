@@ -1,0 +1,17 @@
+    curl -X POST localhost:8080/familia -d '{"nome":"Silva Oliveira","cemiterioId":1}'
+
+
+    curl -X POST localhost:8080/familiar -d '{"nome":"Maurício Silva Oliveira","cpf":"111.111.111-11","dataNascimento":"1995-10-03","morto":true,"dataMorte":"2017-10-20"}'
+
+
+    curl -X POST localhost:8080/familiar -d '{"nome":"Matheus Silva Oliveira","cpf":"222.222.222-22","dataNascimento":"1995-04-03","morto":false,"dataMorte":"1901-01-01"}'
+
+    curl -X POST localhost:8080/familiar -d '{"nome":"Miguel Silva Oliveira","cpf":"333.333.333-33","dataNascimento":"1995-05-07","morto":false,"dataMorte":"1901-01-01"}'
+
+    curl -X POST localhost:8080/familiar -d '{"nome":"Felipe Silva Oliveira","cpf":"444.444.444-44","dataNascimento":"1995-10-11","morto":true,"dataMorte":"2016-10-01"}'
+
+    curl -X POST localhost:8080/campa -d '{"nome":"Campa A","corredor":1,"posicao":1}'
+
+    curl -X POST localhost:8080/aloc -d '{"familiarId":4,"campaId":2,"dia":"2018-06-06"}'
+
+    curl -X DELETE 'http://localhost:8080/cemiterio/id/2'
