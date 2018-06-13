@@ -5,3 +5,4 @@
 
 /cemiterio 			    		    CemiterioR 	 	 GET POST OPTIONS
 /cemiterio/id/#CemiterioId  		CemIdR		 GET DELETE PUT OPTIONS
+/familia 			    		    FamiliaR 	 	 GET POST OPTIONS
