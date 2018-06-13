@@ -2,3 +2,7 @@ Cemiterio json
     razaoSocial        Text
     nomeFantasia       Text
     deriving Show
+    
+Familia json
+    nome               Text
+    cemiterioId        CemiterioId    
