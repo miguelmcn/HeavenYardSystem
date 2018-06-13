@@ -4,4 +4,4 @@
 /robots.txt RobotsR GET
 
 /cemiterio 			    		    CemiterioR 	 	 GET POST OPTIONS
-
+/cemiterio/id/#CemiterioId  		CemIdR		 GET DELETE PUT OPTIONS
