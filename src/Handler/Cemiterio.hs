@@ -20,3 +20,10 @@ getCemIdR cid = do
     addHeader "Access-Control-Allow-Origin" "*"
     cemiterio <- runDB $ get404 cid
     sendStatusJSON ok200 (object ["resp" .= cemiterio])    
+    
+putCemIdR :: CemiterioId -> Handler Value
+putCemIdR cid = do
+    addHeader "Access-Control-Allow-Origin" "*"
+    cemiterio <- requireJsonBody :: Handler Cemiterio
+    runDB $ replace cid cemiterio
+    sendStatusJSON ok200 (object ["resp" .= fromSqlKey cid])    
