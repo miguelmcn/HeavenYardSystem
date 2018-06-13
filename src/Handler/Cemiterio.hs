@@ -14,3 +14,9 @@ deleteCemIdR cid = do
     _ <- runDB $ get404 cid
     runDB $ delete cid
     sendStatusJSON noContent204 (object [])
+    
+getCemIdR :: CemiterioId -> Handler Value
+getCemIdR cid = do
+    addHeader "Access-Control-Allow-Origin" "*"
+    cemiterio <- runDB $ get404 cid
+    sendStatusJSON ok200 (object ["resp" .= cemiterio])    
