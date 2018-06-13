@@ -33,3 +33,9 @@ getFamIdR cid = do
     addHeader "Access-Control-Allow-Origin" "*"
     familia <- runDB $ get404 cid
     sendStatusJSON ok200 (object ["resp" .= familia])    
+
+getFamiliaR :: Handler Value
+getFamiliaR = do
+    addHeader "Access-Control-Allow-Origin" "*"
+    todasFamilias <- runDB $ selectList [] [Asc FamiliaNome]
+    sendStatusJSON ok200 (object ["resp" .= todasFamilias])
